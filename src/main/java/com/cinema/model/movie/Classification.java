@@ -1,4 +1,4 @@
-package com.cinema.model;
+package com.cinema.model.movie;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,22 +6,19 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
-
 @Entity
-@Table(name = "nationalities")
+@Table(name = "classifications")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Nationality {
+public class Classification {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(nullable = false)
-	private int id;
+	private Long id;
 
 	@Column(length = 150, nullable = false)
-	private String nationality;
+	private String classification;
 
 }

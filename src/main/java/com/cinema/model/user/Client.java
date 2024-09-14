@@ -1,4 +1,4 @@
-package com.cinema.model;
+package com.cinema.model.user;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

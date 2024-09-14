@@ -1,34 +1,36 @@
-package com.cinema.model;
+package com.cinema.model.movie_theater;
 
+import com.cinema.model.movie.Movie;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 @Entity
-@Table(name = "directors")
+@Table(name = "film_screenings")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Director {
+public class FilmScreening {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false)
 	private int id;
 
-	@Column(length = 100, nullable = false)
-	private String name;
-
 	@Column(nullable = false)
-	private Date birthdate;
+	private Timestamp startTime;
 
 	@ManyToOne
-	@JoinColumn(name = "nationality_id", nullable = false)
-	private Nationality nationality;
+	@JoinColumn(name = "room_id", nullable = false)
+	private Room room;
+
+	@ManyToOne
+	@JoinColumn(name = "movie_id", nullable = false)
+	private Movie movie;
 
 }

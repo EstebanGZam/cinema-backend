@@ -1,4 +1,4 @@
-package com.cinema.model;
+package com.cinema.model.movie_theater;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -7,22 +7,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "rooms")
+@Table(name = "chairs")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Room {
+public class Chair {
 
 	@Id
-	@Column(length = 50, nullable = false)  // Definir longitud según tu caso
+	@Column(length = 50, nullable = false)
 	private String id;
 
-	@ManyToOne
-	@JoinColumn(name = "theater_id", nullable = false)
-	private Theater theater;
-
 	@Column(length = 1, nullable = false)
-	private char accessibility;
+	private char status;
+
+	@ManyToOne
+	@JoinColumn(name = "type_of_chair_id", nullable = false)
+	private TypeOfChair typeOfChair;
 
 }

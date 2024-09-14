@@ -1,5 +1,7 @@
-package com.cinema.model;
+package com.cinema.model.reservation;
 
+import com.cinema.model.user.Client;
+import com.cinema.model.movie_theater.FilmScreening;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

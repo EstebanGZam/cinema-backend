@@ -1,4 +1,4 @@
-package com.cinema.model;
+package com.cinema.model.movie_theater;
 
 import java.io.Serializable;
 

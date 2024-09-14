@@ -1,4 +1,4 @@
-package com.cinema.model;
+package com.cinema.model.movie;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -7,19 +7,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "types_of_chairs")
+@Table(name = "nationalities")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TypeOfChair {
+public class Nationality {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false)
 	private int id;
 
-	@Column(length = 50, nullable = false)
-	private String type;
+	@Column(length = 150, nullable = false)
+	private String nationality;
 
 }
