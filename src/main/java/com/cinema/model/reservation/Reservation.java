@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
+
 @Entity
 @Table(name = "reservations")
 @Data
@@ -23,6 +25,9 @@ public class Reservation {
 
 	@Column(nullable = false)
 	private int numberOfReservedSeats;
+
+	@Column(nullable = false)
+	private Timestamp reservationDate;
 
 	@ManyToOne
 	@JoinColumns({
