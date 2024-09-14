@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "classifications")
 @Data
@@ -20,5 +22,8 @@ public class Classification {
 
 	@Column(length = 150, nullable = false)
 	private String classification;
+
+	@OneToMany(mappedBy = "classification")
+	private Set<Movie> movies;
 
 }

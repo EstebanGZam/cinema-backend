@@ -1,5 +1,6 @@
 package com.cinema.model.user;
 
+import com.cinema.model.reservation.Reservation;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "clients")
@@ -41,5 +43,8 @@ public class Client {
 
 	@Column(length = 50, nullable = false)
 	private String gender;
+
+	@OneToMany(mappedBy = "client")
+	private Set<Reservation> reservations;
 
 }

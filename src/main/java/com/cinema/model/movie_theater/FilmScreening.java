@@ -11,6 +11,7 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name = "film_screenings")
+@IdClass(FilmScreeningId.class)
 @Data
 @Builder
 @AllArgsConstructor
@@ -20,15 +21,17 @@ public class FilmScreening {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false)
-	private int id;
+	private Long id;
 
 	@Column(nullable = false)
 	private Timestamp startTime;
 
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "room_id", nullable = false)
 	private Room room;
 
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "movie_id", nullable = false)
 	private Movie movie;

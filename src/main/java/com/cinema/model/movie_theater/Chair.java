@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "chairs")
 @Data
@@ -24,5 +26,8 @@ public class Chair {
 	@ManyToOne
 	@JoinColumn(name = "type_of_chair_id", nullable = false)
 	private TypeOfChair typeOfChair;
+
+	@ManyToMany(mappedBy = "chairs")
+	private Set<Room> rooms;
 
 }

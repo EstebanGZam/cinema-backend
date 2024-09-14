@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "rooms")
 @Data
@@ -15,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class Room {
 
 	@Id
-	@Column(length = 50, nullable = false)  // Definir longitud según tu caso
+	@Column(length = 50, nullable = false)
 	private String id;
 
 	@ManyToOne
@@ -24,5 +26,14 @@ public class Room {
 
 	@Column(length = 1, nullable = false)
 	private char accessibility;
+
+	@OneToMany(mappedBy = "room")
+	private Set<FilmScreening> filmScreenings;
+
+	@ManyToMany
+	@JoinTable(name = "room_chairs",
+			joinColumns = @JoinColumn(name = "room_id"),
+			inverseJoinColumns = @JoinColumn(name = "chair_id"))
+	private Set<Chair> chairs;
 
 }

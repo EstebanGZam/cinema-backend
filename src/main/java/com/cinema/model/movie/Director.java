@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "directors")
@@ -19,7 +20,7 @@ public class Director {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false)
-	private int id;
+	private Long id;
 
 	@Column(length = 100, nullable = false)
 	private String name;
@@ -31,4 +32,7 @@ public class Director {
 	@JoinColumn(name = "nationality_id", nullable = false)
 	private Nationality nationality;
 
+	// Relación uno a muchos con Movie
+	@OneToMany(mappedBy = "director", cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<Movie> movies;
 }
