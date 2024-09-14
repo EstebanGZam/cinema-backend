@@ -1,4 +1,4 @@
-package com.cinema.controller;
+package com.cinema.controller.movie;
 
 import com.cinema.dto.movie.MovieDTO;
 import com.cinema.service.movie.MovieService;

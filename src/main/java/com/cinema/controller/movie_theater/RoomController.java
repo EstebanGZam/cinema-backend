@@ -1,4 +1,4 @@
-package com.cinema.controller;
+package com.cinema.controller.movie_theater;
 
 import com.cinema.dto.movie_theater.RoomDTO;
 import com.cinema.service.movie_theater.RoomService;

@@ -1,4 +1,4 @@
-package com.cinema.controller;
+package com.cinema.controller.user;
 
 import com.cinema.dto.user.ClientDTO;
 import com.cinema.exception.ClientAlreadyExistsException;

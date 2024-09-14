@@ -1,4 +1,4 @@
-package com.cinema.controller;
+package com.cinema.controller.reservation;
 
 import com.cinema.dto.reservation.ReservationDTO;
 import com.cinema.service.reservation.ReservationService;
