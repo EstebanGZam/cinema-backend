@@ -1,6 +1,7 @@
 package com.cinema.controller;
 
 import com.cinema.dto.user.ClientDTO;
+import com.cinema.exception.ClientAlreadyExistsException;
 import com.cinema.service.user.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,5 +25,15 @@ public class ClientController {
 		return (clientDTO != null) ?
 				ResponseEntity.ok(clientDTO) :
 				ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
+	}
+
+	@PostMapping
+	public ResponseEntity<?> saveClient(@RequestBody ClientDTO clientDTO) {
+		try {
+			ClientDTO savedClientDTO = clientService.saveClient(clientDTO);
+			return ResponseEntity.status(HttpStatus.CREATED).body(savedClientDTO);
+		} catch (ClientAlreadyExistsException e) {
+			return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
+		}
 	}
 }

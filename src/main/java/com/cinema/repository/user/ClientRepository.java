@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ClientRepository extends CrudRepository<Client, Long> {
+	// Encontrar un cliente por su número de identificación
+	Client findByIdNumber(String idNumber);
 }

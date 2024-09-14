@@ -9,12 +9,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class MovieService {
 	private final MovieRepository movieRepository;
-	private final MovieMapper movieMapper;
+	private final MovieMapper movieMapper = MovieMapper.INSTANCE;
 
 	@Autowired
-	public MovieService(MovieRepository movieRepository, MovieMapper movieMapper) {
+	public MovieService(MovieRepository movieRepository) {
 		this.movieRepository = movieRepository;
-		this.movieMapper = movieMapper;
 	}
 
 	public MovieDTO getMovieById(Long id) {
